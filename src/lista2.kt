@@ -17,10 +17,10 @@ fun <T> List<T>.tail() : List<T>
 fun zad1()
 {
     val r : (s: String, a: Int) -> String = {s, a ->
-        var temp = "";
+        var temp = ""
         for (i in 1..a)
         {temp+=s}
-        temp;
+        temp
     }
     println(r("a", 5))
 }
@@ -65,9 +65,15 @@ fun zad4()
 
     fun <A> tailToHead(lst: List<A>): List<A>
     {
-        return lst.tail() + lst.head()
+
+        var newList :List<A> = listOf<A>()
+        val size:Int = lst.size
+        newList += lst[size-1]
+        for (i in 0..size-2)
+            newList += lst[i]
+        return newList
     }
-    println(tailToHead(listOf<Int>(1,2,3,4,5)))
+    println(tailToHead(listOf<Int>(1,2,3)))
 }
 
 fun zad5()
@@ -124,7 +130,7 @@ fun zad7()
 
         return out
     }
-    println(check(3, listOf(1, 2, 3, 5, 7, 12, 19)))
+    println(check(3, listOf(1, 2, 3, 5, 6, 12, 25)))
 }
 
 fun wypisz()
